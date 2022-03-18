@@ -16,7 +16,14 @@ X_FEATURES = [
     "typ_idx", "pt", "eta", "phi", "e",
     "layer", "depth", "charge", "trajpoint", 
     "eta_ecal", "phi_ecal", "eta_hcal", "phi_hcal", "muon_dt_hits", "muon_csc_hits", "muon_type",
-    "px", "py", "pz", "deltap", "sigmadeltap", "gsf_electronseed_trkorecal", "num_hits", "cluster_flags", "corr_energy"
+    "px", "py", "pz", "deltap", "sigmadeltap",
+    "gsf_electronseed_trkorecal",
+    "gsf_electronseed_dnn1",
+    "gsf_electronseed_dnn2",
+    "gsf_electronseed_dnn3",
+    "gsf_electronseed_dnn4",
+    "gsf_electronseed_dnn5",
+    "num_hits", "cluster_flags", "corr_energy"
 ]
                
 Y_FEATURES = [
