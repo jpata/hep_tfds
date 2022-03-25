@@ -124,11 +124,15 @@ def prepare_data_cms(fn, padded_num_elem_size):
     return X, ygen, ycand
 
 def split_sample(path, pad_size, test_frac=0.8):
-        files = sorted(list(path.glob("*.pkl*")))
-        idx_split = int(test_frac*len(files))
-        files_train = files[:idx_split]
-        files_test = files[idx_split:]
-        return {"train": generate_examples(files_train, pad_size), "test": generate_examples(files_test, pad_size)}
+    files = sorted(list(path.glob("*.pkl*")))
+    print("Found {} files in {}".format(files, path))
+    assert(len(files)>0)
+    idx_split = int(test_frac*len(files))
+    files_train = files[:idx_split]
+    files_test = files[idx_split:]
+    assert(len(files_train)>0)
+    assert(len(files_test)>0)
+    return {"train": generate_examples(files_train, pad_size), "test": generate_examples(files_test, pad_size)}
 
 def generate_examples(files, pad_size):
     """Yields examples."""
