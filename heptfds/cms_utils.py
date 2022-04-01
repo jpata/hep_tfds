@@ -23,7 +23,8 @@ X_FEATURES = [
     "gsf_electronseed_dnn3",
     "gsf_electronseed_dnn4",
     "gsf_electronseed_dnn5",
-    "num_hits", "cluster_flags", "corr_energy"
+    "num_hits", "cluster_flags", "corr_energy",
+    "corr_energy_err", "vx", "vy", "vz", "pterror", "etaerror", "phierror", "lambd", "lambdaerror", "theta", "thetaerror"
 ]
                
 Y_FEATURES = [
