@@ -53,11 +53,11 @@ def prepare_data_cms(fn, padded_num_elem_size):
         ycand = event["ycand"]
 
         # remove PS from inputs, they don't seem to be very useful
-        msk_ps = (Xelem["typ"] == 2) | (Xelem["typ"] == 3)
+        #msk_ps = (Xelem["typ"] == 2) | (Xelem["typ"] == 3)
 
-        Xelem = Xelem[~msk_ps]
-        ygen = ygen[~msk_ps]
-        ycand = ycand[~msk_ps]
+        Xelem = Xelem
+        ygen = ygen
+        ycand = ycand
 
         Xelem = append_fields(
             Xelem, "typ_idx", np.array([ELEM_LABELS_CMS.index(int(i)) for i in Xelem["typ"]], dtype=np.float32)

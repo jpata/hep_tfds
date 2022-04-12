@@ -19,7 +19,7 @@ QCD events with PU~55 in a Run3 setup.
 _CITATION = """
 """
 
-PADDED_NUM_ELEM_SIZE = 6400
+PADDED_NUM_ELEM_SIZE = 12000
 
 class CmsPfQcd(tfds.core.GeneratorBasedBuilder):
     """DatasetBuilder for cms_pf dataset."""
