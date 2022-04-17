@@ -9,7 +9,7 @@ CMS_PF_CLASS_NAMES = ["none" "charged hadron", "neutral hadron", "hfem", "hfhad"
 ELEM_LABELS_CMS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 ELEM_NAMES_CMS = ["NONE", "TRACK", "PS1", "PS2", "ECAL", "HCAL", "GSF", "BREM", "HFEM", "HFHAD", "SC", "HO"]
 
-CLASS_LABELS_CMS = [0, 211, 130, 1, 2, 22, 11, 13]
+CLASS_LABELS_CMS = [0, 211, 130, 1, 2, 22, 11, 13, 15]
 CLASS_NAMES_CMS = ["none", "ch.had", "n.had", "HFEM", "HFHAD", "gamma", "ele", "mu"]
 
 X_FEATURES = [
