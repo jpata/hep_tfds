@@ -3,7 +3,7 @@ import heptfds
 import argparse
 import os
 
-VERSION = "1.3.1"
+VERSION = "1.0.0"
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -23,7 +23,7 @@ def main(args):
     download_config = tfds.download.DownloadConfig(manual_dir=args.manual_dir, max_examples_per_split=args.max_examples_per_split)
 
     train_dataset, train_dataset_info = tfds.load(
-        "cms_pf_ttbar:{}".format(VERSION),
+        "cms_pf:{}".format(VERSION),
         split="train",
         data_dir=args.data_dir,
         as_supervised=False,
@@ -34,7 +34,7 @@ def main(args):
     print("train_dataset_info:\n", train_dataset_info)
 
     test_dataset, test_dataset_info = tfds.load(
-        "cms_pf_ttbar:{}".format(VERSION),
+        "cms_pf:{}".format(VERSION),
         split="test",
         data_dir=args.data_dir,
         as_supervised=False,
