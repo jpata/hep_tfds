@@ -134,6 +134,11 @@ def prepare_data_cms(fn, padded_num_elem_size):
         # prepare gen candidates for clustering
         cls_id = ygen[:, :, 0]
         valid = (cls_id != 0)
+        # save mapping of index after masking -> index before masking as numpy array
+        # inspired from: https://stackoverflow.com/a/1044443
+        cumsum = np.cumsum(valid) - 1
+        index_mapping = np.nonzero(np.r_[1, np.diff(cumsum)[:-1]])[0]
+
         pt = ak.from_iter([y[m] for y, m in zip(ygen[:, :, Y_FEATURES.index("pt")], valid)])
         eta = ak.from_iter([y[m] for y, m in zip(ygen[:, :, Y_FEATURES.index("eta")], valid)])
         phi = np.arctan2(ygen[:, :, Y_FEATURES.index("sin_phi")], ygen[:, :, Y_FEATURES.index("cos_phi")])
@@ -154,7 +159,7 @@ def prepare_data_cms(fn, padded_num_elem_size):
         # 1 is 1st highest-pt jet,
         # 2 is 2nd highest-pt jet, ...
         for jet_idx in sorted_jet_idx:
-            jet_constituents = constituent_idx[jet_idx]
+            jet_constituents = [index_mapping[idx] for idx in constituent_idx[jet_idx]] # map back to constituent index *before* masking
             ygen[0, jet_constituents, Y_FEATURES.index("jet_idx")] = jet_idx + 1 # jet index starts from 1
             ycand[0, jet_constituents, Y_FEATURES.index("jet_idx")] = jet_idx + 1
 
